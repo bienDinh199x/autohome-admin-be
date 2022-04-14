@@ -1,0 +1,44 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath('org.springframework.boot:spring-boot-gradle-plugin:2.3.4.RELEASE')
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+
+sourceCompatibility = '11'
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+if (!hasProperty('mainClass')) {
+    ext.mainClass = 'com.vnpay.isp.be.BeApplication'
+}
+
+repositories {
+    mavenCentral()
+}
+
+test {
+    useJUnitPlatform()
+}
+
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-web:2.3.4.RELEASE'
+    compile 'org.springframework.boot:spring-boot-starter-actuator:2.3.4.RELEASE'
+    compile 'org.springframework.boot:spring-boot-starter-security:2.3.4.RELEASE'
+    compile 'org.springframework.boot:spring-boot-starter-validation:2.3.4.RELEASE'
+
+    compile 'org.springframework.data:spring-data-redis:2.3.4.RELEASE'
+    compile 'io.lettuce:lettuce-core:6.0.1.RELEASE'
+
+    compileOnly 'org.projectlombok:lombok:1.18.16'
+    annotationProcessor 'org.projectlombok:lombok:1.18.16'
+
+    testImplementation('org.springframework.boot:spring-boot-starter-test:2.3.4.RELEASE') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+    testCompile 'org.junit.jupiter:junit-jupiter:5.7.0'
+}
