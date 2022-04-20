@@ -83,4 +83,12 @@ public class Utils {
             return cardNo;
         }
     }
+
+    public static String getRandomString(int i) {
+        StringBuilder sb = new StringBuilder();
+        for (int j = 0; j < i; j++) {
+            sb.append(String.valueOf(Math.random()).substring(2, 3));
+        }
+        return sb.toString();
+    }
 }

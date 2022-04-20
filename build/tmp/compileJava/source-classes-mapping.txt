@@ -22,6 +22,8 @@ com/autohome/be/config/JwtAuthEntryPoint.java
  com.autohome.be.config.JwtAuthEntryPoint
 com/autohome/be/BeApplication.java
  com.autohome.be.BeApplication
+com/autohome/be/service/impl/UsersServiceImpl.java
+ com.autohome.be.service.impl.UsersServiceImpl
 com/autohome/be/model/RecurringInfo.java
  com.autohome.be.model.RecurringInfo
 com/autohome/be/controller/CategoryController.java
@@ -32,6 +34,8 @@ com/autohome/be/entity/Users.java
  com.autohome.be.entity.Users
 com/autohome/be/model/CustomerInfo.java
  com.autohome.be.model.CustomerInfo
+com/autohome/be/controller/UsersController.java
+ com.autohome.be.controller.UsersController
 com/autohome/be/controller/IspController.java
  com.autohome.be.controller.IspController
 com/autohome/be/enums/CardConfig.java
@@ -42,6 +46,8 @@ com/autohome/be/config/WebSecurityConfig.java
  com.autohome.be.config.WebSecurityConfig
 com/autohome/be/repository/UsersRepository.java
  com.autohome.be.repository.UsersRepository
+com/autohome/be/enums/UserStatus.java
+ com.autohome.be.enums.UserStatus
 com/autohome/be/dto/request/JwtValidateRequest.java
  com.autohome.be.dto.request.JwtValidateRequest
 com/autohome/be/config/AppConfig.java
@@ -56,6 +62,8 @@ com/autohome/be/service/CategoryService.java
  com.autohome.be.service.CategoryService$2
  com.autohome.be.service.CategoryService$3
  com.autohome.be.service.CategoryService$4
+com/autohome/be/service/UsersService.java
+ com.autohome.be.service.UsersService
 com/autohome/be/enums/TranType.java
  com.autohome.be.enums.TranType
 com/autohome/be/dto/response/RspObj.java
@@ -68,6 +76,8 @@ com/autohome/be/model/IspTxn.java
  com.autohome.be.model.IspTxn
 com/autohome/be/dto/mapper/IspTxnMapper.java
  com.autohome.be.dto.mapper.IspTxnMapper
+com/autohome/be/dto/request/UserRegisterRequest.java
+ com.autohome.be.dto.request.UserRegisterRequest
 com/autohome/be/service/IspService.java
  com.autohome.be.service.IspService
  com.autohome.be.service.IspService$1
@@ -84,3 +94,5 @@ com/autohome/be/model/Issuer.java
 com/autohome/be/service/JwtAuthService.java
  com.autohome.be.service.JwtAuthService
  com.autohome.be.service.JwtAuthService$1
+com/autohome/be/enums/UserResponse.java
+ com.autohome.be.enums.UserResponse

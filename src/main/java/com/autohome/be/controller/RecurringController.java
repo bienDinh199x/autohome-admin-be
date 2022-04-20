@@ -43,15 +43,6 @@ public class RecurringController {
         return "pong";
     }
 
-    @GetMapping("login")
-    public String login(@RequestParam("userName") String userName) {
-        log.info("login");
-        if (userName != null && userName.equals("biendt")) {
-            return "login success";
-        }
-        return "login success";
-    }
-
     @GetMapping("get")
     public Response<IspTxnDto> getIspTxnDto(@RequestParam String accessToken) {
         return recurringService.getIspTxnDto(accessToken);
