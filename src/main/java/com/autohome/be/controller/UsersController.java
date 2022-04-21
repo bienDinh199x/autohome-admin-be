@@ -3,6 +3,7 @@ package com.autohome.be.controller;
 import com.autohome.be.dto.request.UserRegisterRequest;
 import com.autohome.be.dto.response.Response;
 import com.autohome.be.entity.Users;
+import com.autohome.be.enums.UserResponse;
 import com.autohome.be.service.UsersService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,8 +36,8 @@ public class UsersController {
         try {
             return ResponseEntity.ok(usersService.register(registerRequest));
         } catch (Exception e) {
-            response.setRspCode("99");
-            response.setRspMsg("System error");
+            response.setRspCode(UserResponse.USER_NOT_REGISTER.getCode());
+            response.setRspMsg(UserResponse.USER_NOT_REGISTER.getDesc());
             log.error("REGISTER FAIL ,  Ex ", e);
         }
         return ResponseEntity.ok(response);
