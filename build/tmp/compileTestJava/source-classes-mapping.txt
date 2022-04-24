@@ -1,8 +1,8 @@
-com/vnpay/isp/be/BeApplicationTest.java
- com.vnpay.isp.be.BeApplicationTest
-com/vnpay/isp/be/controller/CategoryControllerTest.java
- com.vnpay.isp.be.controller.CategoryControllerTest
-com/vnpay/isp/be/service/IspServiceTest.java
- com.vnpay.isp.be.service.IspServiceTest
-com/vnpay/isp/be/service/CategoryServiceTest.java
- com.vnpay.isp.be.service.CategoryServiceTest
+com/autohome/be/service/CategoryServiceTest.java
+ com.autohome.be.service.CategoryServiceTest
+com/autohome/be/BeApplicationTest.java
+ com.autohome.be.BeApplicationTest
+com/autohome/be/controller/CategoryControllerTest.java
+ com.autohome.be.controller.CategoryControllerTest
+com/autohome/be/service/IspServiceTest.java
+ com.autohome.be.service.IspServiceTest
