@@ -1,13 +1,14 @@
-package com.autohome.be.service.impl;
+package com.ecom.be.service.impl;
 
-import com.autohome.be.common.Utils;
-import com.autohome.be.dto.request.UserRegisterRequest;
-import com.autohome.be.dto.response.Response;
-import com.autohome.be.entity.Users;
-import com.autohome.be.enums.UserResponse;
-import com.autohome.be.enums.UserStatus;
-import com.autohome.be.repository.UsersRepository;
-import com.autohome.be.service.UsersService;
+import com.ecom.be.common.Utils;
+import com.ecom.be.dto.request.UserLoginRequest;
+import com.ecom.be.dto.request.UserRegisterRequest;
+import com.ecom.be.dto.response.Response;
+import com.ecom.be.entity.Users;
+import com.ecom.be.enums.UserResponse;
+import com.ecom.be.enums.UserStatus;
+import com.ecom.be.repository.UsersRepository;
+import com.ecom.be.service.UsersService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,23 +20,50 @@ public class UsersServiceImpl implements UsersService {
     UsersRepository usersRepository;
 
     @Override
-    public Response<String> login(String authenRequest) {
-        return null;
+    public Response<Users> login(UserLoginRequest request) {
+        Response<Users> response = new Response<>();
+        try {
+            Users users = usersRepository.findByUserName(request.getUserName());
+            if (Utils.isNullOrEmptyObject(users)) {
+                if (users.getPwd().equals(request.getPassword()) && users.getStatus().equals(UserStatus.ACTIVE.getStatusCode())) {
+                    response.setRspCode(UserResponse.USER_IS_LOCKED.getCode());
+                    response.setRspMsg(UserResponse.USER_IS_LOCKED.getDesc());
+                    response.setData(users);
+                    log.info("LOGIN FAIL {} - USER_IS_LOCKED", users);
+                } else {
+                    response.setRspCode(UserResponse.SUCCESS.getCode());
+                    response.setRspMsg(UserResponse.SUCCESS.getDesc());
+                    response.setData(users);
+                    log.info("LOGIN SUCCESS {}", users);
+                }
+            } else {
+                response.setRspCode(UserResponse.USER_NOT_EXIST.getCode());
+                response.setRspMsg(UserResponse.USER_NOT_EXIST.getDesc());
+                log.info("LOGIN FAIL {}", request.getUserName());
+            }
+        } catch (Exception e) {
+            response.setRspCode(UserResponse.FAIL.getCode());
+            response.setRspMsg(UserResponse.FAIL.getDesc());
+            log.info("LOGIN EXCEPTION", e);
+        }
+        return response;
     }
 
     @Override
     public Response<Users> register(UserRegisterRequest userRegisterRequest) {
         Response<Users> response = new Response<>();
         try {
-            Users findUser = usersRepository.findByUserName(userRegisterRequest.getUsername());
-            if (Utils.isNullOrEmpty(findUser.getUserName())) {
+            Users findUser = usersRepository.findByUserName(userRegisterRequest.getUserName());
+            if (!Utils.isNullOrEmpty(userRegisterRequest.getUserName()) && Utils.isNullOrEmptyObject(findUser)) {
 
-                Users users = new Users();
-                users.setUserName(userRegisterRequest.getUsername());
-                users.setPwd(userRegisterRequest.getPassword());
-                users.setPwdSalt(Utils.getRandomString(6));
-                users.setStatus(UserStatus.ACTIVE.getStatusCode());
-                usersRepository.save(users);
+                Users user = new Users();
+                user.setUserName(userRegisterRequest.getUserName());
+                user.setPwd(userRegisterRequest.getPassword());
+                user.setPwdSalt(Utils.getRandomString(6));
+                user.setStatus(UserStatus.ACTIVE.getStatusCode());
+                user.setCreatedDate(Utils.getCurrentTime());
+                usersRepository.save(user);
+
 
                 response.setRspCode(UserResponse.SUCCESS.getCode());
                 response.setRspMsg(UserResponse.SUCCESS.getDesc());
