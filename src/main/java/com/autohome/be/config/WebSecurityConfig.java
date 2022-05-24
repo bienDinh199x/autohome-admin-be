@@ -54,6 +54,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers(ACTUATOR_CONFIGURE).permitAll()
                 .antMatchers("/isp/ping").permitAll()
+                .antMatchers("/users/**").permitAll()
                 .antMatchers("/recurring/ping").permitAll()
                 .antMatchers("/category/ping", "/category/get-error-text", "/category/get-translations").permitAll()
                 .anyRequest().authenticated()

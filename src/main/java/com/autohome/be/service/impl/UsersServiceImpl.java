@@ -27,16 +27,26 @@ public class UsersServiceImpl implements UsersService {
     public Response<Users> register(UserRegisterRequest userRegisterRequest) {
         Response<Users> response = new Response<>();
         try {
-            Users users = new Users();
-            users.setUserName(userRegisterRequest.getUsername());
-            users.setPwd(userRegisterRequest.getPassword());
-            users.setPwdSalt(Utils.getRandomString(6));
-            users.setStatus(UserStatus.ACTIVE.getStatusCode());
-            usersRepository.save(users);
+            Users findUser = usersRepository.findByUserName(userRegisterRequest.getUsername());
+            if (Utils.isNullOrEmpty(findUser.getUserName())) {
+
+                Users users = new Users();
+                users.setUserName(userRegisterRequest.getUsername());
+                users.setPwd(userRegisterRequest.getPassword());
+                users.setPwdSalt(Utils.getRandomString(6));
+                users.setStatus(UserStatus.ACTIVE.getStatusCode());
+                usersRepository.save(users);
+
+                response.setRspCode(UserResponse.SUCCESS.getCode());
+                response.setRspMsg(UserResponse.SUCCESS.getDesc());
+            } else {
+                response.setRspCode(UserResponse.USER_EXIST.getCode());
+                response.setRspMsg(UserResponse.USER_EXIST.getDesc());
+            }
         } catch (Exception e) {
-            response.setRspMsg(UserResponse.USER_NOT_REGISTER.getCode());
+            response.setRspCode(UserResponse.USER_NOT_REGISTER.getCode());
             response.setRspMsg(UserResponse.USER_NOT_REGISTER.getDesc());
-            log.info("register error", e);
+            log.info("REGISTER EXCEPTION", e);
         }
         return response;
     }
@@ -50,7 +60,7 @@ public class UsersServiceImpl implements UsersService {
     public Response<Users> getUserInfo(String userName) {
         Response<Users> response = new Response<>();
         try {
-            Users users = usersRepository.findUserByUserName(userName);
+            Users users = usersRepository.findByUserName(userName);
             response.setRspMsg(UserResponse.SUCCESS.getCode());
             response.setRspMsg(UserResponse.SUCCESS.getDesc());
             response.setData(users);

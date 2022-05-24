@@ -21,13 +21,13 @@ public class JwtAuthEntryPoint implements AuthenticationEntryPoint {
         httpResponse.setContentType("application/json");
         httpResponse.setStatus(HttpServletResponse.SC_FORBIDDEN);
         if ("expired".equals(error)) {
-            response.setRspCode(ErrorCode.ISP_TXN_EXPIRED.getCode());
-            response.setRspMsg(ErrorCode.ISP_TXN_EXPIRED.getMessage());
-            response.setRspAlias(ErrorCode.ISP_TXN_EXPIRED.getAlias());
+            response.setRspCode(ErrorCode.TOKEN_EXPIRED.getCode());
+            response.setRspMsg(ErrorCode.TOKEN_EXPIRED.getMessage());
+            response.setRspAlias(ErrorCode.TOKEN_EXPIRED.getAlias());
         } else {
-            response.setRspCode(ErrorCode.ISP_TXN_NOT_FOUND.getCode());
-            response.setRspMsg(ErrorCode.ISP_TXN_NOT_FOUND.getMessage());
-            response.setRspAlias(ErrorCode.ISP_TXN_NOT_FOUND.getAlias());
+            response.setRspCode(ErrorCode.INVALID_TOKEN.getCode());
+            response.setRspMsg(ErrorCode.INVALID_TOKEN.getMessage());
+            response.setRspAlias(ErrorCode.INVALID_TOKEN.getAlias());
         }
         httpResponse.getOutputStream().print(Utils.toJson(response));
     }

@@ -1,5 +1,6 @@
 package com.autohome.be.controller;
 
+import com.autohome.be.common.Utils;
 import com.autohome.be.dto.request.UserRegisterRequest;
 import com.autohome.be.dto.response.Response;
 import com.autohome.be.entity.Users;
@@ -31,16 +32,16 @@ public class UsersController {
 
     @PostMapping("/register")
     public ResponseEntity<Response<Users>> register(@RequestBody UserRegisterRequest registerRequest) {
-        log.info("register");
         Response<Users> response = new Response<>();
         try {
+            log.info("BEGIN REGISTER USER {}", Utils.toJson(registerRequest));
             return ResponseEntity.ok(usersService.register(registerRequest));
         } catch (Exception e) {
             response.setRspCode(UserResponse.USER_NOT_REGISTER.getCode());
             response.setRspMsg(UserResponse.USER_NOT_REGISTER.getDesc());
             log.error("REGISTER FAIL ,  Ex ", e);
         }
-        return ResponseEntity.ok(response);
+        return ResponseEntity.badRequest().body(response);
     }
 
     @GetMapping("/getUserInfo")
