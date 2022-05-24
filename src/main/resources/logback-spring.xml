@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-    <property name="LOG_DIR" value="/var/logs/auto-home/be"/>
+    <property name="LOG_DIR" value="/var/logs/ecom-be/"/>
     <appender name="RollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${LOG_DIR}/auto-home-be.log</file>
+        <file>${LOG_DIR}/ecom-be.log</file>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <pattern>%date %level [%file,%M,%line] [%thread] %msg%n</pattern>
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- rollover daily and when the file reaches 10 MegaBytes -->
-            <fileNamePattern>${LOG_DIR}/auto-home-be.%d{yyyy-MM-dd}.%i.zip
+            <fileNamePattern>${LOG_DIR}/ecom-be.%d{yyyy-MM-dd}.%i.zip
             </fileNamePattern>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>10MB</maxFileSize>
@@ -16,7 +16,7 @@
         </rollingPolicy>
     </appender>
     <!-- LOG "com.vnpay" at debug level -->
-    <logger name="com.autohome" level="debug" additivity="false">
+    <logger name="com.ecom" level="debug" additivity="false">
         <appender-ref ref="RollingFile"/>
     </logger>
 </configuration>

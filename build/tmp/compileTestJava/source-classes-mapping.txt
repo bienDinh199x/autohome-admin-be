@@ -1,8 +1,2 @@
-com/autohome/be/service/CategoryServiceTest.java
- com.autohome.be.service.CategoryServiceTest
-com/autohome/be/BeApplicationTest.java
- com.autohome.be.BeApplicationTest
-com/autohome/be/controller/CategoryControllerTest.java
- com.autohome.be.controller.CategoryControllerTest
-com/autohome/be/service/IspServiceTest.java
- com.autohome.be.service.IspServiceTest
+com/ecom/be/BeApplicationTest.java
+ com.ecom.be.BeApplicationTest

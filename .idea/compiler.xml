@@ -7,7 +7,7 @@
         <processorPath useClasspath="false">
           <entry name="$PROJECT_DIR$/../../../develop/server/gradle/gradle-7.3.3/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.16/6dc192c7f93ec1853f70d59d8a6dcf94eb42866/lombok-1.18.16.jar" />
         </processorPath>
-        <module name="autohome-admin-be.main" />
+        <module name="ecom-admin-be.main" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="11" />

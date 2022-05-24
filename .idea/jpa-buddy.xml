@@ -2,7 +2,7 @@
 <project version="4">
   <component name="JpaBuddyIdeaProjectConfig">
     <option name="defaultUnitInitialized" value="true" />
-    <option name="reverseEngineeringLastDbConnectionId" value="ad487fc9-c602-44ae-b59c-0fa65ffef6cc" />
-    <option name="reLastEntityCreationPackage" value="src/main/java/com/autohome/be" />
+    <option name="reverseEngineeringLastDbConnectionId" value="231ca4aa-0db4-4bcc-892a-ecbb52b36af6" />
+    <option name="reLastEntityCreationPackage" value="src/main/java/com/ecom/be" />
   </component>
 </project>
