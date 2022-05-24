@@ -1,1 +1,1 @@
-autohome-admin-be
+ecom-admin-be
