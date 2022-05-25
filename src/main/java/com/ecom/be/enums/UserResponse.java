@@ -11,7 +11,8 @@ public enum UserResponse {
     USER_NOT_UNREGISTER("07", "user not unregister"),
     USER_NOT_UPDATE("08", "user not update"),
     USER_NOT_DELETE("09", "user not delete"),
-    USER_IS_LOCKED("09", "user is locked");
+    USER_IS_LOCKED("09", "user is locked"),
+    DATA_NOT_FOUNT("10", "data is not found");
 
     private String code;
     private String desc;
