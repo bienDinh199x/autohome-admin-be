@@ -35,15 +35,15 @@ public class UsersServiceImpl implements UsersService {
                     log.info("LOGIN FAIL {}", request.getUserName());
                 } else {
                     if (users.getPwd().equals(request.getPassword()) && users.getStatus().equals(UserStatus.ACTIVE.getStatusCode())) {
-                        response.setRspCode(UserResponse.USER_IS_LOCKED.getCode());
-                        response.setRspMsg(UserResponse.USER_IS_LOCKED.getDesc());
-                        response.setData(users);
-                        log.info("LOGIN FAIL {} - USER_IS_LOCKED", users);
-                    } else {
                         response.setRspCode(UserResponse.SUCCESS.getCode());
                         response.setRspMsg(UserResponse.SUCCESS.getDesc());
                         response.setData(users);
                         log.info("LOGIN SUCCESS {}", users);
+                    } else {
+                        response.setRspCode(UserResponse.USER_IS_LOCKED.getCode());
+                        response.setRspMsg(UserResponse.USER_IS_LOCKED.getDesc());
+                        response.setData(users);
+                        log.info("LOGIN FAIL {} - USER_IS_LOCKED", users);
                     }
                 }
             }
