@@ -22,8 +22,8 @@ com/ecom/be/BeApplication.java
  com.ecom.be.BeApplication
 com/ecom/be/dto/response/Response.java
  com.ecom.be.dto.response.Response
-com/ecom/be/dto/response/VerifyRsp.java
- com.ecom.be.dto.response.VerifyRsp
+com/ecom/be/enums/UserStatus.java
+ com.ecom.be.enums.UserStatus
 com/ecom/be/enums/ErrorCode.java
  com.ecom.be.enums.ErrorCode
 com/ecom/be/model/CustomerInfo.java
@@ -34,7 +34,7 @@ com/ecom/be/dto/request/UserLoginRequest.java
  com.ecom.be.dto.request.UserLoginRequest
 com/ecom/be/enums/JwtErrorCode.java
  com.ecom.be.enums.JwtErrorCode
-com/ecom/be/enums/UserStatus.java
- com.ecom.be.enums.UserStatus
 com/ecom/be/service/impl/UsersServiceImpl.java
  com.ecom.be.service.impl.UsersServiceImpl
+com/ecom/be/dto/response/VerifyRsp.java
+ com.ecom.be.dto.response.VerifyRsp
