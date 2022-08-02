@@ -1,8 +1,8 @@
 package com.ecom.be.enums;
 
 public enum UserStatus {
-    ACTIVE(0, "active"),
-    LOCK(1, "lock");
+    ACTIVE(1, "active"),
+    LOCK(0, "lock");
 
     private int statusCode;
     private String statusDesc;
