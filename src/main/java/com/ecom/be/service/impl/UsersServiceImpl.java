@@ -23,31 +23,24 @@ public class UsersServiceImpl implements UsersService {
     public Response<Users> login(UserLoginRequest request) {
         Response<Users> response = new Response<>();
         try {
-            if (Utils.isNullOrEmpty(request.getUserName())) {
-                log.info("LOGIN FAIL USERNAME EMTRY");
-                response.setRspCode(UserResponse.DATA_NOT_FOUNT.getCode());
-                response.setRspMsg(UserResponse.DATA_NOT_FOUNT.getDesc());
-            } else {
-                Users users = usersRepository.findByUserName(request.getUserName());
-                if (Utils.isNullOrEmptyObject(users)) {
-                    response.setRspCode(UserResponse.USER_NOT_EXIST.getCode());
-                    response.setRspMsg(UserResponse.USER_NOT_EXIST.getDesc());
-                    log.info("LOGIN FAIL {}", request.getUserName());
+            Users users = usersRepository.findByUserName(request.getUserName());
+            if (Utils.isNullOrEmptyObject(users)) {
+                if (users.getPwd().equals(request.getPassword()) && users.getStatus().equals(UserStatus.ACTIVE.getStatusCode())) {
+                    response.setRspCode(UserResponse.USER_IS_LOCKED.getCode());
+                    response.setRspMsg(UserResponse.USER_IS_LOCKED.getDesc());
+                    response.setData(users);
+                    log.info("LOGIN FAIL {} - USER_IS_LOCKED", users);
                 } else {
-                    if (users.getPwd().equals(request.getPassword()) && users.getStatus().equals(UserStatus.ACTIVE.getStatusCode())) {
-                        response.setRspCode(UserResponse.SUCCESS.getCode());
-                        response.setRspMsg(UserResponse.SUCCESS.getDesc());
-                        response.setData(users);
-                        log.info("LOGIN SUCCESS {}", users);
-                    } else {
-                        response.setRspCode(UserResponse.USER_IS_LOCKED.getCode());
-                        response.setRspMsg(UserResponse.USER_IS_LOCKED.getDesc());
-                        response.setData(users);
-                        log.info("LOGIN FAIL {} - USER_IS_LOCKED", users);
-                    }
+                    response.setRspCode(UserResponse.SUCCESS.getCode());
+                    response.setRspMsg(UserResponse.SUCCESS.getDesc());
+                    response.setData(users);
+                    log.info("LOGIN SUCCESS {}", users);
                 }
+            } else {
+                response.setRspCode(UserResponse.USER_NOT_EXIST.getCode());
+                response.setRspMsg(UserResponse.USER_NOT_EXIST.getDesc());
+                log.info("LOGIN FAIL {}", request.getUserName());
             }
-
         } catch (Exception e) {
             response.setRspCode(UserResponse.FAIL.getCode());
             response.setRspMsg(UserResponse.FAIL.getDesc());
