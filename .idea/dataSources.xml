@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="PostgreSQL - ecommerce-dashboard-core@10.22.7.76" uuid="ad487fc9-c602-44ae-b59c-0fa65ffef6cc">
+    <data-source source="LOCAL" name="PostgreSQL - postgres@183.81.32.198" uuid="231ca4aa-0db4-4bcc-892a-ecbb52b36af6">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://10.22.7.76:5432/ecommerce-dashboard-core</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="ecom-admin-be.main/Hibernate" uuid="5cd802d3-13f3-4d5f-8ae7-3244791442a6">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>Hibernate</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://183.81.32.198:5432/postgres</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>
