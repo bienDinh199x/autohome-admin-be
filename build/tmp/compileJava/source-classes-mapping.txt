@@ -1,31 +1,25 @@
 com/ecom/be/common/Utils.java
  com.ecom.be.common.Utils
+com/ecom/be/dto/response/VerifyRsp.java
+ com.ecom.be.dto.response.VerifyRsp
+com/ecom/be/dto/request/UserLoginRequest.java
+ com.ecom.be.dto.request.UserLoginRequest
 com/ecom/be/dto/request/UserRegisterRequest.java
  com.ecom.be.dto.request.UserRegisterRequest
-com/ecom/be/enums/UserResponse.java
- com.ecom.be.enums.UserResponse
-com/ecom/be/service/UsersService.java
- com.ecom.be.service.UsersService
-com/ecom/be/controller/UsersController.java
- com.ecom.be.controller.UsersController
+com/ecom/be/enums/JwtErrorCode.java
+ com.ecom.be.enums.JwtErrorCode
 com/ecom/be/dto/response/RspObj.java
  com.ecom.be.dto.response.RspObj
 com/ecom/be/config/AppConfig.java
  com.ecom.be.config.AppConfig
-com/ecom/be/dto/request/NotificationRequestDto.java
- com.ecom.be.dto.request.NotificationRequestDto
 com/ecom/be/enums/VerifyErrorCode.java
  com.ecom.be.enums.VerifyErrorCode
 com/ecom/be/dto/request/JwtValidateRequest.java
  com.ecom.be.dto.request.JwtValidateRequest
-com/ecom/be/dto/request/SubscriptionRequestDto.java
- com.ecom.be.dto.request.SubscriptionRequestDto
 com/ecom/be/repository/UsersRepository.java
  com.ecom.be.repository.UsersRepository
 com/ecom/be/BeApplication.java
  com.ecom.be.BeApplication
-com/ecom/be/controller/NotificationController.java
- com.ecom.be.controller.NotificationController
 com/ecom/be/dto/response/Response.java
  com.ecom.be.dto.response.Response
 com/ecom/be/enums/UserStatus.java
@@ -36,11 +30,11 @@ com/ecom/be/model/CustomerInfo.java
  com.ecom.be.model.CustomerInfo
 com/ecom/be/entity/Users.java
  com.ecom.be.entity.Users
-com/ecom/be/dto/request/UserLoginRequest.java
- com.ecom.be.dto.request.UserLoginRequest
-com/ecom/be/enums/JwtErrorCode.java
- com.ecom.be.enums.JwtErrorCode
+com/ecom/be/service/UsersService.java
+ com.ecom.be.service.UsersService
+com/ecom/be/enums/UserResponse.java
+ com.ecom.be.enums.UserResponse
+com/ecom/be/controller/UsersController.java
+ com.ecom.be.controller.UsersController
 com/ecom/be/service/impl/UsersServiceImpl.java
  com.ecom.be.service.impl.UsersServiceImpl
-com/ecom/be/dto/response/VerifyRsp.java
- com.ecom.be.dto.response.VerifyRsp

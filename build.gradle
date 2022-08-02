@@ -43,6 +43,4 @@ dependencies {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
     testCompile 'org.junit.jupiter:junit-jupiter:5.7.0'
-
-    compile 'com.google.firebase:firebase-admin:6.9.0'
 }
